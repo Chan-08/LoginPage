@@ -18,11 +18,12 @@
                 </div>
                 
                 <p>or use your account</p>
-                <form id="loginForm">
+                <form id="loginForm" (submit)="onSubmit($event)">
                     <input id="email" type="email" placeholder="Email" required autocomplete="email">
                     <input id="password" type="password" placeholder="Password" required autocomplete="current-password">
                     <button type="submit" class="btn signin-btn">Sign In</button>
-                </form>                
+                </form>
+                
             </div>
         </div>
       </div>

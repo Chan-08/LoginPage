@@ -1,9 +1,16 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter, Routes } from '@angular/router';
 
-import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
+// Define routes if needed (modify as per your application needs)
+const routes: Routes = [
+  // Example route, modify as per your app structure
+  // { path: '', component: LoginComponent },
+];
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration()]
+  providers: [
+    provideHttpClient(),
+    provideRouter(routes)
+  ]
 };
