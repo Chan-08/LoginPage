@@ -32,14 +32,16 @@ export class LoginComponent {
     event.preventDefault();
     const emailInput = (document.getElementById('email') as HTMLInputElement).value;
     const passwordInput = (document.getElementById('password') as HTMLInputElement).value;
-
+  
     const user = this.users.find((u) => u.email === emailInput && u.password === passwordInput);
-
+  
     if (user) {
+      localStorage.setItem('loggedInUser', user.email); // ✅ Store email
       alert('Login successful!');
-      this.router.navigate(['/dashboard']); // ✅ Navigate to Dashboard
+      this.router.navigate(['/dashboard']);
     } else {
       alert('Invalid email or password. Please try again.');
     }
   }
+  
 }

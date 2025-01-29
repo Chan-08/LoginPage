@@ -1,4 +1,37 @@
 [
-  { "email": "test@example.com", "password": "password123" },
-  { "email": "admin@example.com", "password": "admin@123" }
+  {
+    "name": "John Doe",
+    "age": 28,
+    "gender": "Male",
+    "email": "johndoe@example.com",
+    "password": "password123"
+  },
+  {
+    "name": "Jane Smith",
+    "age": 25,
+    "gender": "Female",
+    "email": "janesmith@example.com",
+    "password": "password456"
+  },
+  {
+    "name": "Alice Johnson",
+    "age": 30,
+    "gender": "Female",
+    "email": "alicej@example.com",
+    "password": "password789"
+  },
+  {
+    "name": "Bob Brown",
+    "age": 35,
+    "gender": "Male",
+    "email": "bobbrown@example.com",
+    "password": "password101"
+  },
+  {
+    "name": "Charlie Davis",
+    "age": 40,
+    "gender": "Male",
+    "email": "charliedavis@example.com",
+    "password": "password202"
+  }
 ]
