@@ -30,7 +30,6 @@ This project is a simple login authentication system built using Angular. It ver
    ng serve
    ```
 4. Open the application in your browser:
-   ```
 
 ## Project Structure
 ```
@@ -79,6 +78,7 @@ The user credentials and details are stored in a JSON file:
 
 ## Developer
 **Name**: Chandrakumar S,
+
 **Contact**: [chandrakumar.developer@gmail.com](mailto:chandrakumar.developer@gmail.com)
 
 ## My Portfolio
