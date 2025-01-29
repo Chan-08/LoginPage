@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   loadUsers() {
-    this.http.get<any[]>('assets/users.json')
+    this.http.get<any[]>('assets/users.json').subscribe(
       data => {
         this.users = data;
       },
