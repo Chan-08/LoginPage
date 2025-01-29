@@ -1,26 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
-  standalone: true,  // ✅ Standalone component
-  imports: [CommonModule, FormsModule],  // ✅ Import necessary modules
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  private users = [
-    { email: 'test@example.com', password: 'password123' },
-    { email: 'admin@example.com', password: 'admin@123' }
-  ];
+export class LoginComponent implements OnInit {
+  users: any[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.http.get<any[]>('assets/users.json')
+      data => {
+        this.users = data;
+      },
+      error => {
+        console.error('Error loading user data:', error);
+      }
+    );
+  }
 
   onSubmit(event: Event) {
-    event.preventDefault();  // ✅ Prevent default form submission
-    console.log('Form submitted');  // ✅ Debugging
-
+    event.preventDefault();
     const emailInput = (document.getElementById('email') as HTMLInputElement).value;
     const passwordInput = (document.getElementById('password') as HTMLInputElement).value;
 
