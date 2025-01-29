@@ -1,18 +1,12 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
-import { provideRouter, Routes } from '@angular/router';
+import { provideRouter } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-// Define routes if needed (modify as per your application needs)
-const routes: Routes = [
-  // Example route, modify as per your app structure
-  // { path: '', component: LoginComponent },
-];
-
-export const appConfig: ApplicationConfig = {
+export const appConfig = {
   providers: [
-    provideHttpClient(),
-    provideRouter(routes)
+    provideRouter([
+      { path: '', component: LoginComponent }, // Default route
+      { path: 'dashboard', component: DashboardComponent } // Dashboard route
+    ])
   ]
 };
-
-

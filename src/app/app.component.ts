@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from "./login/login.component";
+import { RouterOutlet } from '@angular/router'; // ✅ Import RouterOutlet
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LoginComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [RouterOutlet], // ✅ Ensure RouterOutlet is imported
+  templateUrl: './app.component.html', // ✅ Correct file name
+  styleUrls: ['./app.component.css'] // ✅ Correct file name
 })
 export class AppComponent {
   title = 'LoginPage';

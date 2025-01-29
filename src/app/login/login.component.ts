@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   users: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {} // ✅ Inject Router
 
   ngOnInit() {
     this.loadUsers();
@@ -21,10 +19,10 @@ export class LoginComponent implements OnInit {
 
   loadUsers() {
     this.http.get<any[]>('assets/users.json').subscribe(
-      data => {
+      (data) => {
         this.users = data;
       },
-      error => {
+      (error) => {
         console.error('Error loading user data:', error);
       }
     );
@@ -35,10 +33,11 @@ export class LoginComponent implements OnInit {
     const emailInput = (document.getElementById('email') as HTMLInputElement).value;
     const passwordInput = (document.getElementById('password') as HTMLInputElement).value;
 
-    const user = this.users.find(u => u.email === emailInput && u.password === passwordInput);
+    const user = this.users.find((u) => u.email === emailInput && u.password === passwordInput);
 
     if (user) {
       alert('Login successful!');
+      this.router.navigate(['/dashboard']); // ✅ Navigate to Dashboard
     } else {
       alert('Invalid email or password. Please try again.');
     }
